@@ -49,6 +49,12 @@ jobs:
           # the final customization listed above CANNOT have a continuation character "\"
           # more customizations can be pasted after this line
 
+          # Loop: Anettewalle-patch-1: Riktig karbo-absorberingstid
+          curl https://github.com/Anettewalle/Loop/commit/706312b4e9becccde6e7d07bfbad8632c8a68eb3.patch | git apply -v --directory=Loop
+
+          # LoopKit: Anettewalle-patch-1: Lyumjev-verdier
+          curl https://github.com/Anettewalle/LoopKit/commit/5db60583df47b96cc599e0ea71e1a5fda064eb09.patch | git apply -v --directory=LoopKit
+
       # Patch Fastlane Match to not print tables
       - name: Patch Match Tables
         run: find /usr/local/lib/ruby/gems -name table_printer.rb | xargs sed -i "" "/puts(Terminal::Table.new(params))/d"
